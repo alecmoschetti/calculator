@@ -1,0 +1,263 @@
+/* imports go here  */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+/* global rules  */
+
+html {
+    font-size: 100%;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    margin: 0 auto;
+}
+
+/* color variables  */
+
+:root {
+    --calculator-color: #8E96A9;
+    --fx-buttons-color: rgba(255, 166, 158, .8);
+    --calculator-screen: rgba(154, 181, 43, .9);
+    --calculator-screen-border: rgb(81, 87, 113);
+    --page-background-color: rgb(255, 171, 50);
+    --font-color: rgb(65, 69, 162);
+    --clear-color: rgba(132, 220, 198, .7);
+    --number-color: rgba(226, 223, 240, .8);
+    --answer-color: rgba(255, 104, 107, .8);
+    --border: rgba(21, 21, 21, .8);
+    --calculator-box-shadow: 6px 11px 20px -7px rgba(30, 30, 60, 0.4), 6px 11px 20px -7px rgba(30, 30, 60, 0.4), 6px 11px 20px -7px rgba(30, 30, 60, 0.4);
+    --button-box-shadow: 3px 2px 15px -8px rgba(30, 30, 60, 0.34);
+  }
+
+  /* main styles go here  */
+
+body {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10% 80% 10%;
+    place-items: center;
+    background-color: var(--page-background-color);
+}
+
+main {
+    width: 85%;
+    height: 98%;
+}
+
+.svgContainer {
+    width: 1.75rem;
+}
+
+.heart:before {
+    content: '🖤';
+}
+
+footer {
+    display: inline-flex;
+    align-items: center;
+}
+
+footer h3 {
+    padding: .75rem;
+}
+
+/* typography styles go here  */
+
+/* font-family: 'IBM Plex Mono', monospace; font-weights: 400, 500, 600 */
+
+h1, h3, p, span, button {
+    font-family: 'IBM Plex Mono';
+    color: var(--font-color);
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+h3 {
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+p, span {
+    font-weight: 400;
+}
+
+.screen span {
+    font-size: 1.8rem;
+}
+
+button {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+
+/* calculator styles go here  */
+
+.calculator {
+    background-color: var(--calculator-color);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    box-shadow: var(--calculator-box-shadow);
+    height: 100%;
+    width: 100%;
+    padding: .75em;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 28% 72%;
+    grid-template-areas: 
+        'screen'
+        'keypad';
+    place-items: center;
+    gap: 1em;
+}
+
+.screen,
+.keypad {
+    width: 95%;
+    height: 95%;
+    border: 2px solid var(--border);
+    border-radius: 5px;
+}
+
+.screen {
+    grid-area: screen;
+    background-color: var(--calculator-screen-border);
+}
+
+.screenContent {
+    background-color: var(--calculator-screen);
+    position: relative;
+    font-size: 1.2em;
+    margin: .35rem auto;
+    width: 97%;
+    height: 93%;
+    text-align: right;
+    border-radius: 5px;
+}
+
+.screenContent > span {
+    position: absolute;
+    top: 75%;
+    right: 2%;
+}
+
+.keypad {
+    grid-area: keypad;
+    padding: 1em;
+    display: grid;
+    grid: auto-flow / repeat(5, minmax(.5em, 1fr));
+    gap: .5em;
+}
+
+/* calculator buttons styles go here */
+
+.fx {
+    background-color: var(--fx-buttons-color);
+}
+
+.number {
+    background-color: var(--number-color);
+}
+
+.clearButton {
+    background-color: var(--clear-color);
+}
+
+.answer,
+.equal {
+    background-color: var(--answer-color);
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    box-shadow: var(--button-box-shadow);
+    transition: all .2s ease-in;
+}
+
+button:focus {
+    outline: 0;
+    box-shadow: none!important;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.click { /* to be fired with javascript */
+    animation: click .25s ease-out;
+}
+
+/* keyframe animations go here  */
+
+@keyframes click {
+  75% {    
+      transform: scale(.95, .95);
+      opacity: 0.9; 
+    }
+  100% {
+    transform: scale(1.05, 1.05);
+    opacity: 0.75;
+  }
+}
+
+/* media queries  */
+
+/* tablet size  */
+@media (min-width: 750px) {
+
+    html {
+        font-size: 105%;
+    }
+
+    main {
+        width: 60%;
+    }
+}
+
+/* laptop or big tablet  */
+@media (min-width: 1000px) {
+
+    html {
+        font-size: 110%;
+    }
+    main {
+        width: 50%;
+    }
+}
+
+/* big boizzzzzzz */
+@media (min-width: 1400px) {
+
+    html {
+        font-size: 115%;
+    }
+
+    main {
+        width: 40%;
+    }
+}
+
+/* hugeeeeeeeeeeee boizzzzzzz */
+@media (min-width: 1500px) {
+    body {
+        grid-template-rows: 8% 84% 8%;
+    }
+
+    main {
+        width: 35%;
+    }
+}
+
+
+
+
+
+
+
