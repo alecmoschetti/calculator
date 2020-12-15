@@ -15,46 +15,49 @@
             <div class='calculator'>
                 <div class='screen'>
                     <div class='screenContent'>
-                        <span>0</span>
+                        <span class='modeDisplay'>Rad</span>
+                        <span class="info">Info</span>
+                        <span class='previous hidden'></span>
+                        <span class='input'>0</span>
                     </div>
 
                 </div>
                 <div class="keypad">
-                    <button class='mode fx'>Rad</button>
-                    <button class='mode fx'>Deg</button>
-                    <button class='fx'>(</button>
-                    <button class='fx'>)</button>
-                    <button class='clearButton'>CE</button>
-                    <button class='fx'>Inv</button>
-                    <button class='fx'>x!</button>
-                    <button class='fx'>EXP</button>
-                    <button class='fx'>ln</button>
-                    <button class='fx'>log</button>
-                    <button class='fx'>π</button>
-                    <button class='fx'>sin</button>
-                    <button class='fx'>cos</button>
-                    <button class='fx'>tan</button>
-                    <button class='fx'>yⁱ</button>
-                    <button class='fx'>%</button>
+                    <button id="degrees" class='mode'>Deg</button>
+                    <button id="radian" class='mode active'>Rad</button>
+                    <button class='operator funColor'>%</button>
+                    <button class='operator funColor '>x!</button>
+                    <button class='clearAllButton' id='clearAll'>AC</button>
+                    <button class='operator funColor'>log</button>
+                    <button class='fx funColor'>τ</button>
+                    <button class='fx funColor'>π</button>
+                    <button class='fx funColor'>ℇ</button>
+                    <button class='backspaceButton' id='backspace'>CE</button>
+                    <button class='operator funColor'>ln</button>
+                    <button class='operator funColor'>sin</button>
+                    <button class='operator funColor'>cos</button>
+                    <button class='operator funColor'>tan</button>
+                    <button class='fx'>±</button>
+                    <button class='operator funColor'>^</button>
                     <button class='number'>7</button>
                     <button class='number'>8</button>
                     <button class='number'>9</button>
-                    <button class='fx'>÷</button>
-                    <button class='fx'>ℇ</button>
+                    <button class='operator' id='division'>÷</button>
+                    <button class='operator funColor'><sup>y</sup>√x</button>
                     <button class='number'>4</button>
                     <button class='number'>5</button>
                     <button class='number'>6</button>
-                    <button class='fx'>×</button>
-                    <button class='fx'>√</button>
+                    <button class='operator' id='multiplication'>×</button>
+                    <button class='operator funColor'>√</button>
                     <button class='number'>1</button>
                     <button class='number'>2</button>
                     <button class='number'>3</button>
-                    <button class='fx'>−</button>
-                    <button class='answer'>Ans</button>
+                    <button class='operator' id='subtraction'>−</button>
+                    <button class='fx funColor'>rndm</button> 
                     <button class='number'>0</button>
                     <button class='decimal number'>.</button>
-                    <button class='equal'>=</button>
-                    <button class='fx'>+</button>
+                    <button class="equal" id='equal'>=</button>
+                    <button class='operator' id='addition'>+</button>
                 </div>
             </div>
     </main>
@@ -68,6 +71,33 @@
                 </a>
             </div>
     </footer>
+    <div class="overlay hidden">
+        <div class="modal">
+            <div>
+                <button class="modalClose">X</button>
+            </div>
+            <div class="flex">
+                <div>
+                    <h2>How To Use:</h2>
+                </div>
+                <ol>
+                    <li><p>One calculation at a time</p></li>
+                    <li><p>AC will clear the calculation in process</p></li>
+                    <li><p>CE acts as a backspace key while inputing numbers</p></li>
+                    <li><p>After a single calculation, if you want to perform a different calculation not involving the answer just calculated, then press AC otherwise your last calculation will be involved with your next calculation</p></li>
+                    <li><p>The only way to enter negative numbers: +- key will change your current input to the opposite sign</p></li>
+                    <li><p>Clicking an opeartor like + - x / after inputing your calculation will be equivalent to pressing equal</p></li>
+                    <li><p>Selecting degree or radian will change how sin, cos, and tan are calculated</p></li>
+                    <li><p>Solo operands like x!, √, log, ln, sin, cos, tan will operate correctly no matter what order you select the number or operand</p></li>
+                    <li><p>Order matters on operands like <sup>y</sup>√x or ^</p></li>
+                    <li><p>The former must input the number by which root you want to use followed by <sup>y</sup>√x then the number to be performed on</p></li>
+                    <li><p>The latter, you enter your base number first followed by the ^ then the number that will be the exponent</p></li>
+                    <li><p>Randm will generate a pseudorandom number</p></li>
+                    <li><p>Keyboard support to come in the future</p></li>
+                </ol>
+            </div>
+        </div>
+    </div>
     <script src='scripts.js'></script>
 </body>
 </html>
