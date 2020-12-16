@@ -217,6 +217,10 @@ p, span {
 
 /* calculator buttons styles go here */
 
+button {
+    background-color: rgb(239, 239, 239);
+}
+
 .funColor {
     background-color: var(--fun-buttons-color);
 }
@@ -336,9 +340,13 @@ ol li {
 /* media queries  */
 
 /* mobile landscape  */
-@media screen and (min-width: 640px) and (min-height: 360px) and (orientation: landscape) {
+@media screen and (min-width: 600px) and (min-height: 360px) and (orientation: landscape) {
     html {
         font-size: 105%;
+    }
+
+    body {
+        grid-template-rows: 10% 80% 10%;
     }
 
     main {
